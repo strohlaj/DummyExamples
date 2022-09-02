@@ -57,11 +57,11 @@ namespace example
         static void IfStatementAnswer()
         {
             var userResponse = Console.ReadLine().ToLower();
-            if (YesAnswers.ToList().Contains(userResponse))
+            if (YesAnswers.Contains(userResponse))
             {
                 Console.WriteLine("You answered yes!");
             }
-            else if (NoAnswers.ToList().Contains(userResponse))
+            else if (NoAnswers.Contains(userResponse))
             {
                 Console.WriteLine("You answered no!");
             }
