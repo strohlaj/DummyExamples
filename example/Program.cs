@@ -1,23 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace example
 {
     class Program
     {
+        public class PlayerInput 
+        {
+            public string Verb { get; set; }
 
+            public string Noun { get; set; }
+            //public PlayerInput(string input)
+            //{
+            //    // add validation logic
+            //    var splitInput = input.Split(" ");
+            //    Verb = splitInput[0];
+            //    Noun = splitInput[^1];
+            //}
+            public PlayerInput(string verb, string noun)
+            {
+                Verb = verb;
+                Noun = noun;
+            }
+        }
 
         static void Main(string[] args)
         {
+            List<PlayerInput> playerInputs = new();
+
             while (true)
             {
+                // [something1] [something2]
+                var stringInputs = Console.ReadLine().Split(" ");
+                if (stringInputs.Length < 2)
+                {
+                    Console.Write("no beuno");
+                }
+                else
+                {
+                    playerInputs.Add(new PlayerInput(stringInputs[0], stringInputs[^1]));
+                }
+
                 // Play around with any of these solutions!
                 // There are a lot of ways to skin this kitty and these are just 3 options of many.
 
                 // PatternMatchingAnswer();
                 // TraditionalSwitchAnswer();
                 // IfStatementAnswer();
+                // StaticClass.GetName(); // 'aaron'
             }
         }
         static void PatternMatchingAnswer()
@@ -35,7 +65,6 @@ namespace example
             var userResponse = Console.ReadLine();
             switch (userResponse.ToLower())
             {
-                case "y":
                 case "yes":
                 case "ya":
                     Console.WriteLine("You answered yes!");
@@ -71,4 +100,6 @@ namespace example
             }
         }
     }
+
+
 }
